@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js"></script></head>
+</head>
+<body>
+
+<h1>Puzzle</h1>
+
+<h2>Clue 1</h2>
+
+<p>https://imgur.com/a/X9FkS8I</p>
+<script type="text/javascript">
+	function unscrambleClue2() {
+		try {
+			var secretKey = document.getElementById('partonesecret').value;
+			var simpleCrypto = new SimpleCrypto(secretKey)
+			const cipherText = "4e6076182d7cddedc68e3edb53ee4ff54c9b01254d619bd89a7d970dba2e7917t4fF3Dl0RFfTzRU+Leyn3A==f7ac0fdf7e8e02de834f4239f5fd2082e867ae4c0e90e7ee3f994d3b4d16d075";
+			const decipherText = simpleCrypto.decrypt(cipherText)
+
+			document.getElementById('clue2').innerHTML = decipherText;
+		} catch(err){
+			document.getElementById('clue2').innerHTML = "INCORRECT - TRY A DIFFERENT SECRET KEY";
+		}
+		
+	}
+
+</script>
+
+<h3>Part One Secret:</h3>
+<input type="text" id="partonesecret" name="partonesecret" value="Enter Secret from Clue 1"><br>
+<button type="button" onclick="unscrambleClue2()">Unlock Clue 2</button>
+
+<h2>Clue 2</h2>
+<p id="clue2">Submit a Key to Unscramble Clue 2</p>
+
+</body>
+</html>
